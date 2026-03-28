@@ -1,0 +1,4 @@
+outcome,test,n_cond0,n_cond1,mean_diff,mann_whitney_u,mann_whitney_p,permutation_p,n_permutations,cliffs_delta,cliffs_interpretation
+depth,patient_level_means,14,18,-0.12053571428571419,151.5,0.34170343158654004,0.663,10000,-0.20238095238095238,small
+extent,patient_level_means,14,18,-0.03819444444444442,139.0,0.6340011968753185,0.8512,10000,-0.10317460317460317,negligible
+composite,patient_level_means,14,18,-0.15873015873015905,143.0,0.5305375573867636,0.7365,10000,-0.1349206349206349,negligible

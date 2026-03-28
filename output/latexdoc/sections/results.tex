@@ -1,0 +1,130 @@
+\section{Results}
+
+\subsection{Descriptive Statistics}
+
+The analytic sample comprised 32~patients (Condition~0: $n = 14$; Condition~1: $n = 18$) contributing 512 graded observations (32 patients $\times$ 8 quadrant images $\times$ 2 graders). Condition~0 contributed 224 observations and Condition~1 contributed 288 observations. Mean depth scores were numerically similar across conditions, with no clinically meaningful separation apparent from raw score distributions. Score~0 (no bruising) was more frequent in Condition~1 for both outcomes; higher scores (3--4) were uncommon in both groups. The distributions of depth and extent scores by condition are shown in Figure~\ref{fig:comparison-panel} and Figure~\ref{fig:distributions}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{condition_comparison_panel}
+\caption{\textbf{Comparison of bruising outcomes by treatment condition.} Distribution of depth and extent scores across all 512 observations (32 patients $\times$ 8 quadrants $\times$ 2 graders) for Condition~0 ($n=224$ observations) and Condition~1 ($n=288$ observations). No clinically meaningful difference was observed for either outcome, consistent with the linear mixed model estimates (Table~\ref{tab:lmm}).}
+\label{fig:comparison-panel}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{combined_distribution}
+\caption{\textbf{Score distributions for depth and extent by condition.} Proportion of observations at each ordinal score level (0--4) for Condition~0 and Condition~1. Score 0 was more frequent in Condition~1 for both outcomes; higher scores (3--4) were uncommon in both groups.}
+\label{fig:distributions}
+\end{figure}
+
+Procedure code was identified as a potential confounder: procedure code~3 patients exhibited markedly higher depth and extent scores than those undergoing procedure codes~1 or~2. This is illustrated in Figure~\ref{fig:box-procedure}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{box_depth_procedure}
+\caption{\textbf{Bruising depth by procedure code.} Box plots of depth scores stratified by surgical procedure code. Procedure code~3 was associated with markedly higher scores than codes 1 and 2, consistent with the linear mixed model (procedure code~3: $\beta = 0.675$, $p = 0.006$).}
+\label{fig:box-procedure}
+\end{figure}
+
+\subsection{Inter-Rater Reliability}
+
+For bruising depth, ICC(2,1) was 0.515 (95\% CI: $-0.10$ to $0.87$), below the pre-specified acceptability threshold of 0.75. For bruising extent, ICC(2,1) was 0.888 (95\% CI: $0.55$ to $0.98$), exceeding the threshold. Grader~1 assigned systematically higher depth scores than Grader~2: mean difference $+0.184$ (SD $= 0.595$), paired $t$-test $t = 4.93$, $p < 0.001$. Because of this systematic bias, grader was retained as a fixed effect in all primary models rather than being averaged out. The scatter plot of within-image grader agreement for depth is shown in Figure~\ref{fig:grader-scatter}; the Bland--Altman plot for extent is shown in Figure~\ref{fig:bland-altman}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.75\linewidth]{grader_scatter_depth}
+\caption{\textbf{Inter-rater scatter plot for bruising depth.} Grader~1 scores ($y$-axis) plotted against Grader~2 scores ($x$-axis) for the depth outcome across all image pairs. Grader~1 assigned systematically higher scores (mean difference $+0.184$, $p < 0.001$), reflected in the upward displacement from the identity line. ICC(2,1) = 0.515, below the pre-specified 0.75 acceptability threshold.}
+\label{fig:grader-scatter}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.75\linewidth]{bland_altman_extent}
+\caption{\textbf{Bland--Altman plot for bruising extent inter-rater agreement.} Within-image difference (Grader~1 minus Grader~2) plotted against the mean score across all image pairs. The mean difference was $-0.020$ (dashed line), with limits of agreement shown as dotted lines. Extent ICC(2,1) = 0.888, exceeding the pre-specified acceptability threshold.}
+\label{fig:bland-altman}
+\end{figure}
+
+\subsection{Primary Analysis: Linear Mixed Model}
+
+The LMM (Equation~\ref{eq:lmm}) yielded no evidence of a treatment effect for either primary outcome. Full results are presented in Table~\ref{tab:lmm}.
+
+\input{tables/table_lmm}
+
+For depth, the condition coefficient was $\beta = -0.034$ (SE $= 0.231$; 95\% CI: $-0.487$ to $0.420$; $p = 0.885$). For extent, $\beta = 0.029$ (SE $= 0.146$; 95\% CI: $-0.258$ to $0.316$; $p = 0.844$). The composite outcome similarly showed no effect: $\beta = -0.005$ (SE $= 0.369$; 95\% CI: $-0.728$ to $0.719$; $p = 0.990$).
+
+Procedure code was a significant predictor: procedure code~3 was associated with $\beta = 0.675$ higher depth ($p = 0.006$) and $\beta = 0.571$ higher extent ($p \leq 0.006$) relative to the reference category.
+
+Variance components indicated that $\sigma^2_{\text{patient}} = 0.379$ and $\sigma^2_{\text{residual}} = 0.546$ for depth, yielding a patient-level intraclass correlation of 41.0\%. For extent, $\sigma^2_{\text{patient}} = 0.139$ and $\sigma^2_{\text{residual}} = 0.423$ (ICC $= 24.7\%$). These estimates confirm substantial between-patient heterogeneity and justify the inclusion of a random intercept.
+
+\subsection{Population-Averaged Analysis: GEE-Ordinal}
+
+GEE-Ordinal analysis (Equation~\ref{eq:gee}) produced population-averaged estimates that were nearly identical to the LMM subject-specific estimates: depth $\beta = -0.034$ (SE $= 0.214$; 95\% CI: $-0.454$ to $0.387$; $p = 0.876$) and extent $\beta = 0.029$ (SE $= 0.133$; 95\% CI: $-0.232$ to $0.290$; $p = 0.828$). Results are presented in Table~\ref{tab:gee-ordinal}.
+
+\input{tables/table_gee_ordinal}
+
+\subsection{Binary Outcome Analysis}
+
+Binary GEE analyses (Equation~\ref{eq:gee-bin}) for the four dichotomised outcomes are presented in Table~\ref{tab:binary-gee}. None of the binary outcome comparisons reached statistical significance.
+
+\input{tables/table_binary_gee}
+
+For depth $\geq 1$ (any bruising), OR $= 0.703$ (95\% CI: $0.372$--$1.330$; $p = 0.279$; risk difference $= -0.098$; NNT $= 10.2$). For depth $\geq 2$ (clinically significant), OR $= 0.935$ ($p = 0.889$; risk difference $= -0.044$; NNT $= 22.9$). For extent $\geq 1$, OR $= 0.689$ (95\% CI: $0.363$--$1.305$; $p = 0.253$; risk difference $= -0.099$; NNT $= 10.1$). For extent $\geq 2$, OR $= 1.256$ ($p = 0.566$; risk difference $= +0.024$; NNH $= 41.1$).
+
+\subsection{Composite Outcome}
+
+The composite score (depth + extent, range 0--8) demonstrated high internal consistency: Cronbach's $\alpha = 0.873$ and Spearman $r = 0.861$ between depth and extent. Despite this, the composite outcome provided no additional information beyond the individual outcomes. LMM for the composite: $\beta = -0.005$ ($p = 0.990$; Table~\ref{tab:lmm}). Given the high redundancy between depth and extent, the composite is not recommended as a primary endpoint in future analyses.
+
+\subsection{Ordinal Analysis: Cumulative Link Mixed Model}
+
+CLMM analysis (Equation~\ref{eq:clmm}) on the proportional odds scale confirmed the null finding for both outcomes. Results are presented in Table~\ref{tab:clmm}.
+
+\input{tables/table_clmm}
+
+For depth, log-OR $= -0.196$ (SE $= 0.514$; OR $= 0.822$; 95\% CI: $0.300$--$2.251$; $p = 0.702$). For extent, log-OR $= 0.006$ (SE $= 0.385$; OR $= 1.006$; 95\% CI: $0.474$--$2.139$; $p = 0.987$). The proportional odds assumption was satisfied for both outcomes.
+
+\subsection{Summary Comparison Across Statistical Models}
+
+Table~\ref{tab:model-comparison} summarises the condition effect estimates from all primary statistical models for depth and extent. The estimates are strikingly consistent across LMM, GEE-Ordinal, and CLMM, providing strong convergent evidence for the absence of a treatment effect.
+
+\input{tables/table_model_comparison}
+
+\subsection{Effect Sizes}
+
+Descriptive effect sizes computed on patient-level means are presented in Table~\ref{tab:effect-sizes}. All estimates were classified as negligible by standard conventions.
+
+\input{tables/table_effect_sizes}
+
+Cohen's $d$ was $-0.116$ for depth, $-0.047$ for extent, and $-0.090$ for the composite. Hedges' $g$ (bias-corrected) was identical at this sample size. Cliff's $\delta$ was $-0.087$ for depth, $-0.054$ for extent, and $-0.077$ for the composite. By all thresholds ($|d| < 0.20$; $|\delta| < 0.147$), the effect sizes are classified as negligible.
+
+\subsection{Power Analysis}
+
+Post-hoc power analysis results are presented in Table~\ref{tab:power}. The trial was severely underpowered for all three outcomes.
+
+\input{tables/table_power}
+
+Achieved power was 7.2\% for depth ($d = -0.156$), 5.5\% for extent ($d = -0.071$), and 6.4\% for the composite ($d = -0.123$). The minimum detectable effect size at 80\% power was approximately 1.0~SD for all outcomes. The required sample sizes per group at 80\% power were 571 (depth), 2{,}786 (extent), and 922 (composite). These results indicate that the current trial was designed and powered to detect only implausibly large treatment effects.
+
+\subsection{Multi-Model Ensemble and Model Limitations}
+
+Across all four model families (LMM, CLMM, GEE-Ordinal, GEE-Binary), the evidence consistently supports the null hypothesis of no treatment effect. Point estimates are uniformly small and in contradictory directions for depth ($\hat{\beta} < 0$) and extent ($\hat{\beta} > 0$), further arguing against any systematic treatment benefit. The convergence of mixed-effects and population-averaged approaches additionally rules out an artefactual null due to variance component misspecification.
+
+A critical structural limitation is that the treatment (condition) is assigned at the patient level, whereas the unit of observation is the image-quadrant. This means that within each patient, both eyes received the same treatment, making it impossible to use the contralateral eye as a within-patient control. The conditional logistic model (Equation~\ref{eq:clogit}), which would exploit a within-patient contrast, could not be fitted because there is no within-patient variation in condition.
+
+\subsection{Sensitivity Analyses}
+
+Sensitivity analyses across five domains confirmed the robustness of the null finding; results are summarised in Supplementary Table~\ref{tab:supp-sensitivity}.
+
+\paragraph{Random-effects structure.} The condition effect estimate was $\beta = -0.034$ for depth under all random-effects specifications (OLS, random intercept, random intercept plus slope, two-level nested). The naive OLS standard error (SE $= 0.084$) was 2.7 times smaller than the LMM standard error (SE $= 0.231$), confirming that ignoring clustering severely underestimates uncertainty. $p$-values ranged from 0.692 to 0.885 across specifications.
+
+\paragraph{Interaction: condition $\times$ procedure code.} Interaction terms were all non-significant: depth $\times$ procedure code~1, $\beta = 0.119$ ($p = 0.722$); depth $\times$ procedure code~3, $\beta = -0.112$ ($p = 0.783$). Procedure code~2 was underpowered (1~patient in Condition~0, 3~in Condition~1). No evidence of treatment effect heterogeneity across procedure types was found.
+
+\paragraph{Grader handling.} Results were identical whether grader was retained as a fixed effect or whether scores were averaged across graders prior to fitting. The estimated condition coefficient was $\beta = -0.034$ in both cases.
+
+\paragraph{Nonparametric tests.} Mann--Whitney $U$ tests on patient-level mean scores: depth $p = 0.342$, extent $p = 0.634$, composite $p = 0.531$. Permutation tests (10{,}000 permutations): depth $p = 0.663$, extent $p = 0.851$, composite $p = 0.737$. Cliff's $\delta$: depth $= -0.202$ (small); extent $= -0.103$ (negligible). No nonparametric analysis reached significance.
+
+\paragraph{Multiple comparisons.} After Bonferroni correction: depth $p = 1.000$, extent $p = 1.000$. After Benjamini--Hochberg (BH) correction: depth $p = 0.885$, extent $p = 0.885$. No correction changed the conclusions.
+
+\subsection{Model Diagnostics}
+
+LMM residuals were assessed for normality using the Shapiro--Wilk test. Depth residuals: $W = 0.991$, $p = 0.002$; extent residuals: $W = 0.975$, $p < 0.001$. Both outcomes showed statistically significant departures from normality, though the effect was modest given the large sample (512~observations). Visual inspection of quantile--quantile plots indicated mild right-skew for depth (skewness $\approx 0.45$) and near-symmetry for extent (skewness $\approx 0.04$). Mixed models are generally robust to moderate non-normality of residuals, and the concordance between LMM and CLMM (which makes no normality assumption) confirms that the inference is not materially affected. No influential outliers were identified from leverage and Cook's distance statistics.

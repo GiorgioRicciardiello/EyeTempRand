@@ -1,0 +1,17 @@
+patient,condition,quadrant,outcome,mean_score
+4,1,a,depth,3.0
+4,1,b,depth,1.0
+4,1,c,depth,2.0
+4,1,d,depth,1.0
+4,1,e,depth,3.0
+4,1,f,depth,3.0
+4,1,g,depth,1.0
+4,1,h,depth,2.0
+4,1,a,extent,2.0
+4,1,b,extent,1.0
+4,1,c,extent,3.0
+4,1,d,extent,1.0
+4,1,e,extent,2.0
+4,1,f,extent,2.0
+4,1,g,extent,1.0
+4,1,h,extent,3.0

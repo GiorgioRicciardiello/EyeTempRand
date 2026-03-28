@@ -1,0 +1,2 @@
+shapiro_w,shapiro_p,normality_ok,re_shapiro_w,re_shapiro_p,re_normality_ok,n_random_groups,n_obs,n_outliers_2sd,resid_mean,resid_sd,resid_skew,resid_kurtosis,model_name
+0.9906298163169093,0.0024455823135857064,False,0.9153793505892471,0.015609596022978706,False,32,512,17,4.683753385137379e-17,0.717256021065204,0.040112883042630575,-0.16450518609141973,lmm_depth

@@ -1,0 +1,45 @@
+\section{Discussion}
+
+\subsection{Main Findings}
+
+This randomized, grader-blinded trial found no significant difference in post-operative periorbital bruising between Condition~0 and Condition~1 for any outcome across any statistical model. The null finding was highly consistent: LMM depth $\beta = -0.034$ ($p = 0.885$), LMM extent $\beta = 0.029$ ($p = 0.844$), CLMM depth OR $= 0.822$ ($p = 0.702$), CLMM extent OR $= 1.006$ ($p = 0.987$), and GEE-Ordinal depth $\beta = -0.034$ ($p = 0.876$), GEE-Ordinal extent $\beta = 0.029$ ($p = 0.828$). All $p$-values exceeded 0.70, and all effect sizes were classified as negligible: Cohen's $d < 0.12$ for all outcomes, Cliff's $\delta < 0.09$. The convergence of subject-specific (LMM, CLMM) and population-averaged (GEE) estimates provides particularly strong evidence that the null result is not an artefact of any particular modelling assumption.
+
+\subsection{Consistency Across Model Families}
+
+A notable feature of this analysis is the near-perfect concordance between LMM and GEE-Ordinal point estimates: both yield $\beta = -0.034$ for depth and $\beta = 0.029$ for extent. This is expected when the outcome distribution is approximately symmetric and random effects are modest relative to the total variance, but it strengthens confidence that the result is not sensitive to the distinction between subject-specific and population-averaged inference. The CLMM, which correctly respects the ordinal scale without treating scores as continuous, also yielded ORs close to 1.0 (0.822 and 1.006), confirming that the conclusion is not an artefact of the linearity assumption in the LMM.
+
+\subsection{Inadequate Statistical Power}
+
+The trial was severely underpowered. Post-hoc power calculations indicated 7.2\% power for depth and 5.5\% power for extent at $\alpha = 0.05$ (two-sided). The minimum detectable effect size was approximately 1.0~SD for all outcomes, meaning that only implausibly large treatment effects -- comparable to or exceeding the full standard deviation of patient-level scores -- would have been detectable with the current sample of 32~patients. The required sample sizes for 80\% power at the observed effect magnitudes ranged from 571 to 2{,}786 patients per group.
+
+These power values imply that a null result in this study is nearly uninformative about the true treatment effect: the trial had roughly a 1-in-14 chance of detecting even a true effect of 1.0~SD. The absence of a significant finding therefore should not be interpreted as definitive evidence that the intervention has no effect. A properly powered, adequately designed replication study is needed before any firm clinical conclusion can be drawn.
+
+\subsection{Between-Patient Heterogeneity and Clustering}
+
+The patient-level random intercept explained 41.0\% of total variance in depth scores and 24.7\% in extent scores. This substantial between-patient heterogeneity has two important implications. First, it confirms that clustering must be modelled: a naive OLS analysis produced standard errors 2.7-fold smaller than the LMM (SE $= 0.084$ vs.\ $0.231$ for depth), which would have yielded spuriously narrow confidence intervals and inflated type-I error rates. Second, it highlights the statistical opportunity lost by the absence of a within-patient (eye-level) treatment contrast. In an ideal paired design -- where one eye receives Condition~0 and the contralateral eye Condition~1 -- the between-patient variance would be eliminated from the error term, dramatically increasing power. If the 41.0\% patient ICC for depth had been removable via within-patient conditioning, an equivalent analysis would have required far fewer patients.
+
+\subsection{Inter-Rater Reliability}
+
+Inter-rater reliability was acceptable for extent (ICC $= 0.888$) but only moderate for depth (ICC $= 0.515$, below the 0.75 threshold). Grader~1 assigned systematically higher depth scores than Grader~2 (mean difference $+0.184$, $p < 0.001$), a bias that was consistent across patients and conditions. This systematic bias does not threaten the internal validity of the treatment comparison -- because both graders assessed both conditions, the bias cancels in the condition contrast -- but it limits the interpretability of absolute score values and underscores the need for grader training and calibration sessions in future trials. Retaining grader as a fixed effect in all models was the appropriate response to this finding.
+
+\subsection{Procedure Code as a Dominant Predictor}
+
+Procedure code~3 was the dominant predictor of bruising severity in all models: $\beta = 0.675$ for depth ($p = 0.006$) and $\beta = 0.571$ for extent. This is a clinically plausible finding -- more extensive surgical procedures are likely to produce more tissue trauma and hence more post-operative bruising -- and suggests that procedure type should be treated as a primary stratification variable in future trials, not merely an adjustment covariate. The near-equal distribution of procedure codes across conditions (6 vs.\ 7 for code~3) provides some reassurance that imbalance in procedure type is not confounding the condition comparison, but the small cell sizes for procedure code~2 (1 vs.\ 3 patients) mean that the interaction between condition and procedure type remains uninvestigated.
+
+\subsection{Composite Outcome and Internal Consistency}
+
+The composite score (depth + extent) showed high internal consistency (Cronbach's $\alpha = 0.873$, Spearman $r = 0.861$), confirming that depth and extent are measuring closely related constructs. However, this high correlation also implies that the composite is largely redundant with either subscale alone. For primary outcome reporting in future studies, either a single pre-specified primary outcome (most likely depth) or a composite with explicit clinical justification would be preferable to reporting all three simultaneously.
+
+%\subsection{Limitations}
+%
+%\paragraph{Treatment assigned at patient level, not eye level.}
+%The most consequential design limitation is that the treatment condition is recorded as a patient-level variable, with both eyes receiving the same irrigation. This makes it impossible to recover the intended intra-patient comparison and eliminates the possibility of using the contralateral eye as a within-patient control. The patient-level random intercept captures 41.0\% of variance in depth -- variance that would have been eliminated had true within-patient contrasts been available. Addressing this limitation in future trials requires assigning conditions to individual eyes and recording which eye received which condition.
+%
+%\paragraph{Missing exclusion documentation.}
+%Patients~19 and~25 are absent from the dataset, but no documentation of the reasons for their exclusion was available. Without this information, it is impossible to assess whether the exclusions were pre-specified, whether they could introduce selection bias, and whether a complete-case analysis is appropriate.
+%
+%\paragraph{Undefined procedure codes.}
+%The definitions of procedure codes~1, 2, and~3 were not available in the dataset documentation. As procedure code was the dominant predictor of bruising, its interpretation and generalisability are limited without knowing precisely what surgical procedures each code represents.
+%
+%\paragraph{Only two graders.}
+%With only two graders, it is not possible to separate rater-by-condition interactions from systematic grader differences, and the ICC estimates carry wide confidence intervals. Additional graders and formal grader calibration would substantially improve reliability estimation.

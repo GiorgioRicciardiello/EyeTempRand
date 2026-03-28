@@ -20,8 +20,17 @@ build/
 # Data — raw data not committed; processed outputs are large
 data/processed/
 
-# Output — regenerated from code
-output/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
 
 # IDE
 .idea/

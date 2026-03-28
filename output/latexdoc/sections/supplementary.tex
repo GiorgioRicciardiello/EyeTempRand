@@ -1,0 +1,163 @@
+\clearpage
+\appendix
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\section*{Supplementary Material}
+
+\subsection*{Supplementary Tables}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity analysis: effect of random-effects structure on the condition coefficient for bruising depth. All specifications yield an identical point estimate ($\beta = -0.034$); standard errors and $p$-values vary substantially across specifications.}
+\label{tab:supp-sensitivity}
+\begin{tabular}{l S[table-format=-1.3] S[table-format=1.3] S[table-format=1.3]}
+\toprule
+{Random-effects specification} & {$\beta$ (condition)} & {SE} & {$p$-value} \\
+\midrule
+OLS (no random effects)                   & -0.034 & 0.084 & 0.692 \\
+Random intercept (patient)                & -0.034 & 0.231 & 0.885 \\
+Random intercept + random slope           & -0.034 & 0.231 & 0.885 \\
+Two-level nested (quadrant within patient)& -0.034 & 0.231 & 0.876 \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} OLS standard error (SE $= 0.084$) is 2.7$\times$ smaller than the LMM SE ($0.231$), confirming that ignoring clustering severely underestimates uncertainty. The condition estimate is invariant to the random-effects specification.
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity analysis: condition $\times$ procedure code interaction. No interaction term was statistically significant.}
+\label{tab:supp-interaction}
+\begin{tabular}{l l S[table-format=-1.3] S[table-format=1.3] S[table-format=1.3]}
+\toprule
+{Outcome} & {Interaction term} & {$\beta$} & {SE} & {$p$-value} \\
+\midrule
+Depth  & Condition $\times$ procedure code 1 &  0.119 & 0.329 & 0.722 \\
+Depth  & Condition $\times$ procedure code 3 & -0.112 & 0.413 & 0.783 \\
+Extent & Condition $\times$ procedure code 1 &  0.083 & 0.241 & 0.731 \\
+Extent & Condition $\times$ procedure code 3 & -0.096 & 0.318 & 0.763 \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} Procedure code~2 was underpowered for interaction estimation (1 patient in Condition~0, 3 in Condition~1) and is not reported. All interaction terms are non-significant; no evidence of treatment effect heterogeneity across procedure types.
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity analysis: effect of grader handling. Results are identical whether grader is retained as a fixed effect or scores are averaged across graders prior to model fitting.}
+\label{tab:supp-grader}
+\begin{tabular}{l l S[table-format=-1.3] S[table-format=1.3] S[table-format=1.3]}
+\toprule
+{Outcome} & {Grader treatment} & {$\beta$} & {SE} & {$p$-value} \\
+\midrule
+Depth  & Grader as fixed effect    & -0.034 & 0.231 & 0.885 \\
+Depth  & Scores averaged by grader & -0.034 & 0.231 & 0.885 \\
+Extent & Grader as fixed effect    &  0.029 & 0.146 & 0.844 \\
+Extent & Scores averaged by grader &  0.029 & 0.146 & 0.844 \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} The systematic Grader~1 bias (mean $+0.184$, $p < 0.001$) cancels out in the condition contrast because both graders assessed both conditions, explaining why the two approaches yield identical estimates.
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity analysis: nonparametric tests on patient-level mean scores. No test reached statistical significance.}
+\label{tab:supp-nonparam}
+\begin{tabular}{l l S[table-format=1.3] l}
+\toprule
+{Outcome} & {Test} & {$p$-value} & {Cliff's $\delta$} \\
+\midrule
+Depth     & Mann--Whitney $U$          & 0.342 & $-0.202$ \\
+Depth     & Permutation (10{,}000)     & 0.663 & {---} \\
+Extent    & Mann--Whitney $U$          & 0.634 & $-0.103$ \\
+Extent    & Permutation (10{,}000)     & 0.851 & {---} \\
+Composite & Mann--Whitney $U$          & 0.531 & $-0.077$ \\
+Composite & Permutation (10{,}000)     & 0.737 & {---} \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} Cliff's $\delta$: depth $= -0.202$ (small); extent $= -0.103$ (negligible); composite $= -0.077$ (negligible). Threshold for ``small'': $|\delta| \geq 0.147$. All $p$-values $> 0.30$.
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity analysis: multiple comparison corrections applied jointly to depth and extent $p$-values.}
+\label{tab:supp-mcp}
+\begin{tabular}{l S[table-format=1.3] S[table-format=1.3] S[table-format=1.3]}
+\toprule
+{Outcome} & {Unadjusted $p$} & {Bonferroni $p$} & {BH $p$} \\
+\midrule
+Depth  & 0.885 & 1.000 & 0.885 \\
+Extent & 0.844 & 1.000 & 0.885 \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} BH, Benjamini--Hochberg false discovery rate correction. Bonferroni correction: multiply by number of tests (2). BH correction applied to the two primary $p$-values. No correction changes the conclusion.
+\end{table}
+
+\clearpage
+\subsection*{Supplementary Figures}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{dist_depth_by_condition}
+\caption{\textbf{Score frequency distribution for bruising depth by condition.} Histogram showing raw count of depth scores (0--4) for Condition~0 and Condition~1 across all observations. Score~0 (no bruising) is the most common category in both conditions; the distributions overlap substantially with no systematic shift associated with treatment allocation.}
+\label{fig:supp-dist-depth}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{raincloud_depth_condition}
+\caption{\textbf{Raincloud plot for bruising depth by condition.} Combined density estimation, box plot, and jittered individual data points for depth scores by treatment condition, illustrating the full data distribution. The density curves and interquartile ranges are similar across conditions, consistent with the null treatment effect.}
+\label{fig:supp-raincloud}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{heatmap_depth_patient_quadrant}
+\caption{\textbf{Patient-by-quadrant heatmap for mean depth scores.} Each cell shows the mean depth score for a patient--quadrant combination, averaged across graders and conditions. Rows represent patients; columns represent quadrant labels (a--h). Heterogeneity across patients is apparent, consistent with the substantial between-patient variance component ($\sigma^2_{\text{patient}} = 0.379$, ICC $= 41.0\%$).}
+\label{fig:supp-heatmap-pq}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{heatmap_grader_diff_depth}
+\caption{\textbf{Heatmap of grader score differences for depth.} Each cell shows the difference between Grader~1 and Grader~2 depth scores for each patient--quadrant pair. Positive values (Grader~1 higher) predominate, reflecting the systematic upward bias of Grader~1 (mean $+0.184$, $p < 0.001$). The bias is pervasive across patients and quadrants.}
+\label{fig:supp-heatmap-grader}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{agreement_confusion_depth}
+\caption{\textbf{Grader agreement confusion matrix for depth scores.} Cross-tabulation of Grader~1 versus Grader~2 depth score assignments across all image pairs ($n = 256$ pairs). Diagonal cells represent exact agreement; off-diagonal cells indicate discordance. The matrix illustrates the modest exact agreement rate for depth, consistent with ICC(2,1) $= 0.515$.}
+\label{fig:supp-confusion}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{patient_summary_depth}
+\caption{\textbf{Patient-level mean depth scores by condition.} Each bar represents one patient's mean depth score averaged across quadrants and graders, grouped and colour-coded by treatment condition. The overlap in score distributions between Condition~0 and Condition~1 is evident, consistent with the absence of a significant treatment effect.}
+\label{fig:supp-patient-summary}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{top_bottom_depth}
+\caption{\textbf{Depth score profiles for patients with highest and lowest mean scores.} Quadrant-level depth score profiles for the patients with the highest and lowest mean depth scores in the dataset. This figure illustrates the range of patient-level bruising severity and the quadrant-level variability within individual patients.}
+\label{fig:supp-topbottom}
+\end{figure}

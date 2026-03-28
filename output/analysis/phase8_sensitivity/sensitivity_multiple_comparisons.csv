@@ -1,0 +1,3 @@
+test,p_raw,p_bonferroni,p_fdr_bh,significant_raw,significant_bonferroni,significant_fdr,n_tests
+lmm_depth,0.8848576411389019,1.0,0.8848576411389019,False,False,False,2
+lmm_extent,0.8435263474753136,1.0,0.8848576411389019,False,False,False,2

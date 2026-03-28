@@ -1,0 +1,125 @@
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2200: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+  warnings.warn(
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2200: ConvergenceWarning: Retrying MixedLM optimization with cg
+  warnings.warn(
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2206: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+  warnings.warn(msg, ConvergenceWarning)
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2218: ConvergenceWarning: Gradient optimization failed, |grad| = 0.039845
+  warnings.warn(msg, ConvergenceWarning)
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2200: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+  warnings.warn(
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2200: ConvergenceWarning: Retrying MixedLM optimization with cg
+  warnings.warn(
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2206: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+  warnings.warn(msg, ConvergenceWarning)
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2218: ConvergenceWarning: Gradient optimization failed, |grad| = 0.255531
+  warnings.warn(msg, ConvergenceWarning)
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2237: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  warnings.warn(msg, ConvergenceWarning)
+C:\Users\riccig01\anaconda3\Lib\site-packages\statsmodels\regression\mixed_linear_model.py:2261: ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.
+  warnings.warn(msg, ConvergenceWarning)
+Data: 512 rows, 32 patients
+Conditions: {0: 14, 1: 18}
+Alpha: 0.05
+
+== Phase 0: Inter-Rater Reliability ==
+  depth: ICC2=0.515 < 0.75: retain grader as a model factor.
+  extent: ICC2=0.888 >= 0.75: scores may be averaged across graders.
+  Grader bias: outcome  mean_diff_g1_minus_g2  paired_t_p
+  depth               0.183594    0.000001
+ extent              -0.019531    0.608920
+
+== Phase 1: Linear Mixed Models ==
+  depth: beta=-0.0335, 95%CI=[-0.4870, 0.4200], p=0.8849 (no), d=-0.045
+  extent: beta=0.0289, 95%CI=[-0.2580, 0.3158], p=0.8435 (no), d=0.044
+  composite: beta=-0.0046, 95%CI=[-0.7281, 0.7189], p=0.9900 (no), d=-0.004
+
+== Phase 2: Ordinal Mixed Models (CLMM) ==
+  depth: R/ordinal not available: No module named 'rpy2'. Using LMM instead.
+  extent: R/ordinal not available: No module named 'rpy2'. Using LMM instead.
+
+== Phase 2.5: GEE for Ordinal Outcomes (Paired Structure) ==
+  NOTE: GEE with exchangeable correlation respects within-patient pairing
+  and provides population-averaged estimates robust to non-normality.
+
+  depth: beta=-0.0335, 95%CI=[-0.4536, 0.3866], p=0.8758 (no), d=-0.036
+  extent: beta=0.0289, 95%CI=[-0.2320, 0.2898], p=0.8281 (no), d=0.039
+
+== Phase 3: Conditional Logistic Regression (Paired Binary) ==
+  NOTE: Conditional logistic is the epidemiological gold standard for
+  matched/paired case-control and cohort studies. It eliminates patient-level
+  nuisance parameters entirely via conditional likelihood.
+  Requires eye-level condition assignment; currently falling back to GLMM.
+
+  depth any: Conditional logistic not available (data may not have eye-level coding): R with 'survival' package required for conditional logistic regression. Using standard logistic with patient random intercept instead.
+  depth significant: Conditional logistic not available (data may not have eye-level coding): R with 'survival' package required for conditional logistic regression. Using standard logistic with patient random intercept instead.
+  extent any: Conditional logistic not available (data may not have eye-level coding): R with 'survival' package required for conditional logistic regression. Using standard logistic with patient random intercept instead.
+  extent significant: Conditional logistic not available (data may not have eye-level coding): R with 'survival' package required for conditional logistic regression. Using standard logistic with patient random intercept instead.
+
+== Phase 4: Binary Outcome Models (GEE) ==
+  depth any: OR=0.703, p=0.2787 (no)
+  depth significant: OR=0.935, p=0.8890 (no)
+  extent any: OR=0.689, p=0.2533 (no)
+  extent significant: OR=1.256, p=0.5662 (no)
+
+== Phase 5: Composite Outcome ==
+  Correlation depth-extent: rho=0.861
+  Cronbach alpha: 0.873
+  High redundancy — depth and extent may measure the same construct
+
+== Phase 6: Model Diagnostics ==
+  depth: residuals normal=False, RE normal=False, outliers=17
+  extent: residuals normal=False, RE normal=True, outliers=21
+  composite: residuals normal=False, RE normal=True, outliers=16
+  depth: leave-one-out influence analysis complete
+  extent: leave-one-out influence analysis complete
+
+== Phase 7: Effect Sizes ==
+  depth: Cohen's d=-0.116 (negligible), Cliff's delta=-0.087 (negligible)
+  extent: Cohen's d=-0.047 (negligible), Cliff's delta=-0.054 (negligible)
+  composite: Cohen's d=-0.090 (negligible), Cliff's delta=-0.077 (negligible)
+
+== Phase 8: Power Analysis ==
+  depth: observed d=-0.156, power=7.2%, MDE(80%)=0.998, n needed=571
+  extent: observed d=-0.071, power=5.5%, MDE(80%)=0.998, n needed=2786
+  composite: observed d=-0.123, power=6.4%, MDE(80%)=0.998, n needed=922
+
+== Phase 9: Sensitivity Analyses ==
+  Random structure comparison complete
+  Interaction tests complete
+  Grader sensitivity complete
+  Non-parametric tests complete
+  Balance assessment complete
+  Multiple comparisons: 2 primary tests corrected
+
+== Writing Master Summary Table ==
+  9 rows written to summary_table.csv
+
+============================================================
+RESULTS SUMMARY
+============================================================
+  [1_lmm] depth (LMM): est=-0.0335, p=0.8849, effect=-0.045
+  [1_lmm] extent (LMM): est=0.0289, p=0.8435, effect=0.044
+  [1_lmm] composite (LMM): est=-0.0046, p=0.9900, effect=-0.004
+  [2p5_gee_ordinal] depth (GEE-Ordinal): est=-0.0335, p=0.8758, effect=-0.036
+  [2p5_gee_ordinal] extent (GEE-Ordinal): est=0.0289, p=0.8281, effect=0.039
+  [4_binary] depth_any (GEE): est=-0.3527, p=0.2787, effect=0.703
+  [4_binary] depth_significant (GEE): est=-0.0674, p=0.8890, effect=0.935
+  [4_binary] extent_any (GEE): est=-0.3731, p=0.2533, effect=0.689
+  [4_binary] extent_significant (GEE): est=0.2283, p=0.5662, effect=1.256
+
+All outputs saved to C:\Users\riccig01\OneDrive\Projects\MtSinai\Vascbrain\EyeTempRand\output\analysis

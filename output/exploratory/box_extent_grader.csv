@@ -1,0 +1,3 @@
+outcome,grader,n,mean,sd,median,q1,q3,min,max
+extent,Grader 1,256,0.96875,0.7663255848272224,1.0,0.0,1.0,0,4
+extent,Grader 2,256,0.98828125,0.869899349034692,1.0,0.0,2.0,0,4

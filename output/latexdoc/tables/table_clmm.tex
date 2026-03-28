@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Cumulative link mixed model (CLMM) estimates for the condition effect on bruising outcomes (proportional odds scale). OR $< 1$ indicates lower odds of each unit increment in the outcome for Condition~1 versus Condition~0.}
+\label{tab:clmm}
+\begin{tabular}{l S[table-format=-1.3] S[table-format=1.3] S[table-format=-1.3] S[table-format=1.3] l}
+\toprule
+{Outcome} & {Log-OR} & {SE} & {$z$} & {$p$-value} & {OR [95\% CI]} \\
+\midrule
+Depth  & -0.196 & 0.514 & -0.382 & 0.702 & 0.822 [0.300, 2.251] \\
+Extent &  0.006 & 0.385 &  0.017 & 0.987 & 1.006 [0.474, 2.139] \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} CLMM fitted via R \texttt{ordinal::clmm}. Models adjusted for procedure code and grader with patient-level random intercept. 95\% CIs derived from Wald interval on the log-OR scale. $N = 32$ patients, 512 observations.
+\end{table}

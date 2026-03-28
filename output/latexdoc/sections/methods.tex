@@ -1,0 +1,80 @@
+\section{Methods}
+
+\subsection{Study Design and Participants}
+
+This was a randomized, grader-blinded clinical trial evaluating the effect of irrigation saline temperature on post-operative periorbital bruising following eyelid surgery. Thirty-four patients were enrolled across three surgical procedure types. Two patients (IDs~19 and~25) were absent from the dataset and excluded from all analyses, yielding a final analytic sample of 32~patients. Treatment was assigned at the patient level: 14~patients were allocated to Condition~0 and 18~patients to Condition~1. Three procedure types were included: procedure code~1 (7~patients in Condition~0 vs.\ 8~in Condition~1), procedure code~2 (1~vs.\ 3), and procedure code~3 (6~vs.\ 7). Reasons for the exclusion of patients~19 and~25 were not available in the dataset.
+
+\subsection{Image Acquisition and Grading}
+
+Eight standardised photographs were obtained for each patient, capturing four periorbital quadrants per eye (quadrants a--h). Two independent graders, blinded to patient identity and treatment allocation, assessed each image independently. Each image was scored on two dimensions: bruising depth (severity) and bruising extent (area), both on a discrete ordinal scale of 0--4. The complete dataset comprised $32 \times 8 \times 2 = 512$ graded observations.
+
+\subsection{Outcome Measures}
+
+\paragraph{Primary outcomes.} Bruising depth and bruising extent, each on a 0--4 ordinal scale (0 = none, 4 = maximal).
+
+\paragraph{Secondary outcomes.} A composite score (depth + extent, range 0--8), and binary indicators of any bruising ($\geq 1$) and clinically significant bruising ($\geq 2$), derived separately for depth and extent.
+
+\subsection{Inter-Rater Reliability}
+
+Inter-rater reliability was quantified using the intraclass correlation coefficient ICC(2,1) for absolute agreement under a two-way mixed-effects model, and quadratic-weighted Cohen's kappa to account for ordinal score proximity. Systematic grader bias was assessed using a paired $t$-test and a Wilcoxon signed-rank test on within-image score differences (Grader~1 minus Grader~2). The pre-specified acceptability threshold for ICC was $\geq 0.75$.
+
+\subsection{Statistical Analysis}
+
+The primary outcome data are ordinal (0--4), and the dataset contains multiple levels of non-independence: two graders score each image, eight quadrant images are taken per patient, two eyes are photographed per patient, and the intervention is assigned at the patient level. No single model addresses all of these features simultaneously. A multi-model strategy was therefore adopted to examine whether the condition effect estimate was robust across model assumptions, scales of inference, and treatment of the ordinal response.
+
+A Linear mixed model (LMM) was utilized as the primary model treated ordinal scores as approximately continuous and estimated:
+
+\begin{equation}
+Y_{ijkl} = \mu + \alpha_k + \pi_l + \gamma_j + b_i + \varepsilon_{ijkl}
+\label{eq:lmm}
+\end{equation}
+
+\noindent where $Y_{ijkl}$ is the outcome for patient $i$, grader $j$, condition $k$, and procedure code $l$; $\alpha_k$ is the fixed effect of condition; $\pi_l$ is the fixed effect of procedure code; $\gamma_j$ is the fixed effect of grader; $b_i \sim \mathcal{N}(0,\sigma^2_b)$ is the patient-level random intercept capturing between-patient heterogeneity; and $\varepsilon_{ijkl} \sim \mathcal{N}(0,\sigma^2_\varepsilon)$ is the residual error. Grader was retained as a fixed effect in all models because of the observed systematic grader bias (see Results).
+
+To respect the ordinal nature of the response, a proportional Cumulative link mixed model (CLMM) was fitted:
+
+\begin{equation}
+\Pr(Y_{ijkl} \leq m) = \text{logistic}\!\left(\theta_m - \alpha_k - \pi_l - \gamma_j - b_i\right), \quad m = 0,1,2,3
+\label{eq:clmm}
+\end{equation}
+
+\noindent where $\theta_m$ are ordered threshold parameters, $\text{logistic}(x) = 1/(1+e^{-x})$, and all other terms are as in Equation~\ref{eq:lmm}. The exponentiated condition coefficient yields a proportional odds ratio (OR): OR $< 1$ indicates lower cumulative odds (i.e.\ lower scores) in Condition~1. 
+
+%Models were fitted using the \texttt{ordinal::clmm} function in R.
+
+To obtain population-average, generalized estimating equations -- ordinal (GEE-Ordinal) estimates was implemented to make no distributional assumptions about patient-level heterogeneity, GEE with an exchangeable within-patient correlation structure was fitted:
+
+\begin{equation}
+\mathrm{E}[Y_{ij}] = \beta_0 + \beta_1 X_{\text{cond},ij} + \beta_2 X_{\text{proc},ij} + \beta_3 X_{\text{grader},ij}
+\label{eq:gee}
+\end{equation}
+
+\noindent with robust (sandwich) standard errors to guard against misspecification of the working correlation matrix.
+
+
+For clinical interpretability, binary outcomes (any bruising and clinically significant bruising) were modelled using a generalized estimating equations -- binary (GEE-Binary) with logit link and binomial family:
+
+\begin{equation}
+\log\!\left(\frac{p_{ij}}{1-p_{ij}}\right) = \beta_0 + \beta_1 X_{\text{cond},ij} + \beta_2 X_{\text{proc},ij} + \beta_3 X_{\text{grader},ij}
+\label{eq:gee-bin}
+\end{equation}
+
+\noindent Exponentiated coefficients yield odds ratios; absolute risk differences and numbers needed to treat (NNT) or harm (NNH) were computed from marginal predicted probabilities.
+
+A within-patient Conditional logistic model (exploratory) approach was considered to leverage the paired structure (two eyes per patient) for binary outcomes. The conditional likelihood takes the form:
+
+\begin{equation}
+L_{\text{cond}}(\boldsymbol{\beta}) = \prod_{i=1}^{n} \frac{\exp(\boldsymbol{\beta}^\top \mathbf{x}_{i,\text{case}})}{\sum_{j \in S_i} \exp(\boldsymbol{\beta}^\top \mathbf{x}_{ij})}
+\label{eq:clogit}
+\end{equation}
+
+\noindent where $S_i$ is the stratum of patient $i$. This model could not be estimated from the current dataset because the treatment variable is constant within each patient stratum (condition is assigned at the patient level, not the eye level), eliminating all within-stratum contrast. It is documented here to motivate the design recommendation for future studies.
+
+
+Standardised effect sizes were computed on patient-level mean scores (averaged across quadrants and graders) to obtain approximately independent observations at the unit of randomisation. Cohen's $d$ and Hedges' $g$ (bias-corrected for small samples) were computed from the pooled standard deviation of patient means. Cliff's $\delta$ was computed as a non-parametric, ordinal-appropriate effect size. Thresholds for interpretation: negligible $|d| < 0.20$; $|\delta| < 0.147$.
+
+Post-hoc power was estimated for a two-sample $t$-test at $\alpha = 0.05$ (two-sided) using the observed patient-level Cohen's $d$ and the actual group sizes ($n_0 = 14$, $n_1 = 18$). The minimum detectable effect (MDE) at 80\% power was back-calculated, and the required sample size per group for 80\% power at each observed effect was also reported.
+
+Five sensitivity domains were examined: (1) \textit{random-effects structure} --- OLS (no random effects), random intercept only, random intercept plus random slope, and two-level nested intercepts; (2) \textit{interaction} --- condition $\times$ procedure code interaction terms; (3) \textit{grader handling} --- averaging scores across graders prior to fitting vs.\ retaining grader as a fixed effect; (4) \textit{nonparametric} --- Mann--Whitney $U$ test, permutation test (10{,}000 permutations), and Cliff's $\delta$ on patient-level means; (5) \textit{multiple comparisons} --- Bonferroni and Benjamini--Hochberg corrections applied to depth and extent $p$-values jointly.
+
+Residuals from the LMM were assessed for approximate normality using the Shapiro--Wilk test and visual inspection of quantile--quantile plots. Variance components (between-patient $\sigma^2_b$, residual $\sigma^2_\varepsilon$) were extracted to quantify the intraclass correlation at the patient level. Scale-location plots and leverage statistics were examined to identify influential observations.

@@ -1,0 +1,2 @@
+outcome,n_images,mean_diff,sd_diff,upper_loa,lower_loa,min_diff,max_diff,pct_exact_agreement,pct_within_1
+depth,256,0.18359375,0.5953120577297518,1.3504053831503136,-0.9832178831503136,-2,2,69.53125,97.265625

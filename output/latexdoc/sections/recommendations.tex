@@ -1,0 +1,68 @@
+\section{Recommendations for Future Paired-Design Trials}
+
+The structural limitations of the current study provide a concrete basis for the following design recommendations. These recommendations target the data infrastructure required to enable a properly powered, within-patient paired analysis, which is the most efficient design for this research question.
+
+\subsection{Explicit Eye-Level Treatment Assignment in Raw Dataset}
+
+The treatment condition must be recorded at the eye level, not the patient level. Each row in the raw dataset should carry a column identifying which eye (left or right) received Condition~0 and which received Condition~1. An example data structure is:
+
+\begin{center}
+\texttt{patient\_id | eye | condition | quadrant | grader | depth | extent}
+\end{center}
+
+\noindent Without this information, the intended within-patient paired contrast is unrecoverable from any post-hoc analysis. The current dataset's patient-level condition variable means that both eyes always share the same condition value, which eliminates all within-patient contrast information.
+
+\subsection{Document Quadrant-to-Eye Mapping Explicitly}
+
+The eight quadrant labels (a--h) must be mapped to eyes (left/right) in a data dictionary or lookup table that is included with the raw data. An example mapping table:
+
+\begin{center}
+\texttt{quadrant | eye | anatomical\_region}\\
+\texttt{a        | L   | superior}\\
+\texttt{b        | L   | inferior}\\
+\texttt{...}
+\end{center}
+
+\noindent In the current dataset, it is unclear which of the eight quadrant images correspond to the left eye versus the right eye. This mapping is necessary to construct the within-patient, within-eye analysis unit.
+
+%\subsection{Standardize and Document Procedure Code Definitions}
+
+%Procedure codes (1, 2, 3) must be defined in the study protocol and data dictionary before data collection begins. The definition should include the specific surgical technique, anatomical site(s), and any relevant modifiers (e.g., upper lid vs.\ lower lid, unilateral vs.\ bilateral). As procedure code was the dominant predictor of bruising in the current analysis, its precise definition is essential for interpreting results, pre-stratifying randomisation, and comparing findings across studies.
+
+\subsection{Prospectively Document All Exclusion Reasons}
+
+Every enrolled patient who does not contribute to the primary analysis must have an exclusion reason documented in a screening log. Reasons should be categorised (e.g., withdrawn consent, protocol deviation, missing photographs, adverse event) and should be reported in a CONSORT-style flow diagram. In the current study, two patients (IDs~19 and~25) were absent from the dataset without documentation of why they were excluded, which prevents assessment of potential selection bias.
+
+
+%\subsection{Record Grader Identifiers and Metadata}
+%
+%Each scored image should be linked to a grader identifier in the raw data, and grader metadata (training level, years of experience, calibration session dates) should be recorded. Additionally, repeat grading sessions or anchor images can be used to assess within-grader reliability over time. In the current dataset, graders were identified as 1 and 2 but no further metadata was available.
+
+%\subsection{Collect Minimal Baseline Patient Characteristics}
+%
+%The following baseline variables should be recorded prospectively to enable covariate adjustment and subgroup analyses: age, sex, Fitzpatrick skin type, pre-operative anticoagulant use, and surgical laterality (unilateral vs.\ bilateral procedure). Currently, no baseline patient characteristics are available in the dataset, which precludes any subgroup analysis or assessment of randomisation balance beyond procedure code.
+%
+%\subsection{Enforce Data Validation at Point of Entry}
+%
+%A data entry system (electronic or paper) should enforce range checks and completeness requirements at the time of data recording. Specific constraints include:
+%
+%\begin{itemize}
+%  \item Depth and extent scores must be integers in $\{0, 1, 2, 3, 4\}$.
+%  \item Every patient must have exactly 8 image rows per grader.
+%  \item Each image row must have a non-missing condition and quadrant label.
+%  \item Patient IDs must be sequential with any gaps explicitly documented.
+%\end{itemize}
+%
+%\noindent These checks prevent the ambiguities encountered in the current dataset (e.g., the missing patients~19 and~25).
+%
+%\subsection{Pre-Specify Sample Size Justification}
+%
+%The study protocol must include a formal sample size calculation with explicit assumptions for: (1)~the expected effect size (minimum clinically important difference on the depth or extent scale); (2)~the expected intraclass correlation at the patient level; (3)~the number of repeated measures per patient; (4)~the desired power (typically 80\%) and type-I error rate ($\alpha = 0.05$). Based on the current data, a within-patient paired design with ICC $\approx 0.41$ (depth) would require substantially fewer patients than an unpaired design. The current study's sample of 32~patients provided only 5.5--7.2\% power, which is insufficient to draw any clinical conclusion.
+
+%\subsection{Use Eye-Level Randomization with Verification}
+%
+%Randomisation should be performed at the eye level within each patient (left vs.\ right eye), with allocation concealment maintained until the point of intraoperative irrigation. A randomisation log should confirm that the assigned conditions were administered as planned for each eye. If bilateral surgery is performed, the fellow eye is the natural within-patient control, which is the most efficient use of the study design. If unilateral surgery occurs, that patient should still be enrolled and analysed as a single-eye observation.
+
+%\subsection{Plan the Analysis Structure at Study Design}
+%
+%The statistical analysis plan (SAP) should be written and registered prior to data collection. The SAP should specify: (1)~the primary outcome (depth or extent) and the null hypothesis; (2)~the primary statistical model (e.g., a paired mixed model with patient intercept and eye nested within patient); (3)~the handling of grader effects; (4)~the primary test statistic and significance level; (5)~a pre-specified sensitivity analysis plan; and (6)~the unblinding procedure. Pre-registration of the SAP prevents the appearance of data dredging and ensures that the multi-model approach used in the present analysis is not necessary to demonstrate robustness.

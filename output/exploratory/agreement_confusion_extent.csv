@@ -1,0 +1,26 @@
+outcome,Grader 1_score,Grader 2_score,count,proportion,exact_agreement
+extent,0,0,58,0.2265625,True
+extent,0,1,5,0.01953125,False
+extent,0,2,1,0.00390625,False
+extent,0,3,1,0.00390625,False
+extent,0,4,0,0.0,False
+extent,1,0,29,0.11328125,False
+extent,1,1,83,0.32421875,True
+extent,1,2,34,0.1328125,False
+extent,1,3,0,0.0,False
+extent,1,4,0,0.0,False
+extent,2,0,0,0.0,False
+extent,2,1,5,0.01953125,False
+extent,2,2,30,0.1171875,True
+extent,2,3,0,0.0,False
+extent,2,4,0,0.0,False
+extent,3,0,0,0.0,False
+extent,3,1,2,0.0078125,False
+extent,3,2,0,0.0,False
+extent,3,3,6,0.0234375,True
+extent,3,4,0,0.0,False
+extent,4,0,0,0.0,False
+extent,4,1,0,0.0,False
+extent,4,2,0,0.0,False
+extent,4,3,1,0.00390625,False
+extent,4,4,1,0.00390625,True

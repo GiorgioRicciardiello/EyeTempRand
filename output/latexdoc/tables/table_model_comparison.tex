@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\caption{Treatment condition effect across statistical models. LMM and GEE-Ordinal estimates are on the continuous (mean difference) scale; CLMM estimate is on the proportional odds scale. All models adjusted for procedure code and grader with patient-level clustering.}
+\label{tab:model-comparison}
+\begin{tabular}{l l l r l l}
+\toprule
+{Outcome} & {Model} & {Estimate [95\% CI]} & {SE} & {$p$-value} & {Effect size} \\
+\midrule
+\multirow{3}{*}{Depth}
+  & LMM         & $\beta = -0.034$ [$-0.487$, $0.420$] & 0.231 & 0.885 & $d = -0.045$ \\
+  & GEE-Ordinal & $\beta = -0.034$ [$-0.454$, $0.387$] & 0.214 & 0.876 & $d = -0.036$ \\
+  & CLMM        & OR $= 0.822$ [0.300, 2.251]           & 0.514$^{\dagger}$ & 0.702 & OR near unity \\
+\midrule
+\multirow{3}{*}{Extent}
+  & LMM         & $\beta = 0.029$ [$-0.258$, $0.316$] & 0.146 & 0.844 & $d = 0.044$ \\
+  & GEE-Ordinal & $\beta = 0.029$ [$-0.232$, $0.290$] & 0.133 & 0.828 & $d = 0.039$ \\
+  & CLMM        & OR $= 1.006$ [0.474, 2.139]          & 0.385$^{\dagger}$ & 0.987 & OR near unity \\
+\bottomrule
+\end{tabular}
+\smallskip
+
+\noindent\textit{Note:} $^{\dagger}$SE on the log-OR scale for CLMM. LMM, linear mixed model; GEE, generalized estimating equations; CLMM, cumulative link mixed model. $N = 32$ patients, 512 observations.
+\end{table}
