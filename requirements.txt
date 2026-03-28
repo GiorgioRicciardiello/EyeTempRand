@@ -1,0 +1,13 @@
+pandas>=2.0
+openpyxl>=3.1          # Excel reading
+numpy>=1.26
+scipy>=1.11
+statsmodels>=0.14
+pingouin>=0.5          # ICC, kappa
+pymer4>=0.8            # Mixed models via R/lme4 (requires R installed)
+rpy2>=3.5              # R bridge for pymer4
+matplotlib>=3.8
+seaborn>=0.13
+pyyaml>=6.0
+jupyter>=1.0
+pytest>=7.4
